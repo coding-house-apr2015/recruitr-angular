@@ -1,1 +1,27 @@
-h3 USERS LIST
+h3 LIST PROFILES
+.row
+  .col-sm-12
+    .table-responsive
+      table.table.table-striped
+        thead
+          tr
+            th Name
+            th Company
+            th Email
+            th User Type
+            th Edit
+            th Delete
+        tbody
+          tr(ng-repeat='user in users')
+            td {{user.name}}
+            td {{user.company}}
+            td {{user.email}}
+            td {{user.role}}
+            td: button.btn.btn-warning Edit
+            td: button.btn.btn-warning Delete
+.row
+  .col-xs-1
+    button.btn.btn-info(ng-show='', ng-click='changePage(prev)', ng-model='prev') Prev
+  .col-xs-10
+  .col-xs-1
+    button.btn.btn-info(ng-show='', ng-click='changePage(next)', ng-model='next') Next

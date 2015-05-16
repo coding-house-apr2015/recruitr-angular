@@ -9,9 +9,9 @@ angular.module('recruitr')
     return $http.post(nodeUrl + '/users');
   };
 
-  User.oauth = function(provider){
-    return $rootScope.afAuth.$authWithOAuthPopup(provider);
-  };
+  // User.oauth = function(provider){
+  //   return $rootScope.afAuth.$authWithOAuthPopup(provider);
+  // };
 
   User.register = function(user){
     return $rootScope.afAuth.$createUser(user);

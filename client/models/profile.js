@@ -10,4 +10,6 @@ angular.module('recruitr')
   Profile.save = function(student){
     return $http.post(nodeUrl + '/profiles', student);
   };
+
+  return Profile;
 });

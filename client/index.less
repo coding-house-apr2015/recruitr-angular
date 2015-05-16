@@ -3,12 +3,25 @@
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
+@col-blue: #3aadd0;
+@col-peach: #d69571;
+@col-rust: #93d71c;
+@col-gray: #48506a;
+@col-altblue: #13cb9d;
+
+@font-style: 'Open Sans', helvetica, sans-serif;
+
 body {
-  background-color: #3AADD0;
-  font-family: 'Open Sans', helvetica, sans-serif;
+  background-color: @col-blue;
+  font-family: @font-style;
   .navbar {}
   .btn-danger {
-    background-color: #9D371C;
+    background-color: #9d371c;
     border: none;
   }
+}
+
+#logoutButton{
+	height: 3em;
+	margin-right: -15px;
 }
