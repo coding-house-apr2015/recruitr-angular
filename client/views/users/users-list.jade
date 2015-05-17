@@ -1,1 +1,27 @@
-h3 USERS LIST
+h3 LIST USERS
+.row
+  .col-sm-12
+    .table-responsive
+      table.table.table-striped
+        thead
+          tr
+            th Name
+            th Company
+            th Email
+            th User Type
+            th(ng-if='') Edit
+            th(ng-if='') Delete
+        tbody
+          tr(ng-repeat='user in users')
+            td {{user.name}}
+            td {{user.company}}
+            td {{user.email}}
+            td {{user.role}}
+            td(ng-if=''): button.btn.btn-sm.btn-warning(ng-click='editUser(user)') Edit
+            td(ng-if=''): button.btn.btn-sm.btn-Danger(ng-click='deleteUser(user)') Delete
+.row
+  .col-xs-1
+    button.btn.btn-info(ng-show='moveBack', ng-click='changePage("prev")') Prev
+  .col-xs-10
+  .col-xs-1
+    button.btn.btn-info(ng-show='moveForward', ng-click='changePage("next")') Next
