@@ -1,1 +1,36 @@
 h3 SHOW PROFILE
+.row
+  .col-xs-12
+    h2 {{student.firstName}} {{student.lastName}}
+  .col-xs-12
+    img(base-sixty-four-image="student.photo")
+  .col-xs-12
+    h5 Skills
+    ul
+      li(ng-repeat="skill in student.skills") {{skill}}
+  .col-xs-12
+    h5 Exposure
+    ul
+      li(ng-repeat="exposure in student.exposure") {{exposure}}
+  .col-xs-12
+    h5 Blurb
+    {{bio}}
+  .col-xs-12
+    h5 location
+    p(ng-repeat="location in student.locationPref") {{location}}
+  .col-xs-12
+    h5 Education
+    p(ng-repeat="edu in student.education") {{edu}}
+  .col-xs-12
+    h5 Interests
+    p(ng-repeat="interest in student.interests") {{interest}}
+  .col-xs-12
+    h5 Contact Information
+    p
+      i.fa.fa-envelope: a(mailto="{{contat.email}}") &nbsp; email
+    p
+      i.fa.fa-linkedin: a(href="{{student.social.linkedin}}") &nbsp; LinkedIn
+    p
+      i.fa.fa-github: a(href="{{student.social.github}}") &nbsp; Github
+    p
+      i.fa.fa-stack-overflow: a(href="{{student.social.stackoverflow}}") &nbsp; LinkedIn

@@ -5,24 +5,21 @@ angular.module('recruitr')
   function User(){
   }
 
+  // not sure if this next block is needed
   User.initialize = function(){
     return $http.post(nodeUrl + '/users');
   };
 
-  User.oauth = function(provider){
-    return $rootScope.afAuth.$authWithOAuthPopup(provider);
+  User.login = function(loginInfo){
+    return $http.post(nodeUrl + '/users/authenticate', loginInfo);
   };
 
-  User.register = function(user){
-    return $rootScope.afAuth.$createUser(user);
+  User.save = function(user){
+    return $http.post(nodeUrl + '/users', user);
   };
 
-  User.login = function(user){
-    return $rootScope.afAuth.$authWithPassword(user);
-  };
-
-  User.logout = function(){
-    return $rootScope.afAuth.$unauth();
+  User.find = function(){
+    // something here
   };
 
   return User;
