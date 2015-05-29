@@ -1,27 +1,18 @@
 'use strict';
 
 angular.module('recruitr')
-.controller('LoginCtrl', function($scope, $state, $window, User){
+.controller('LoginCtrl', function($scope, $state, $window, User, $http, $rootScope){
   $scope.name = $state.current.name;
 
-  $scope.oauth = function(provider){
-    User.oauth(provider);
-  };
-
   $scope.submit = function(user){
-    if($scope.name === 'register'){
-      User.register(user)
-      .then(function(){
-        $state.go('login');
-      })
-      .catch(function(){
-        $window.swal({title: 'Registration Error', text: 'There was a problem with your registration. Please try again.', type: 'error'});
-      });
-    }else{
-      User.login(user)
-      .catch(function(){
-        $window.swal({title: 'Login Error', text: 'There was a problem with your login. Please try again.', type: 'error'});
-      });
-    }
+    User.login(user)
+    .then(function(result){
+      $http.defaults.headers.common.Authorization = 'Bearer ' + result.data.token;
+      $rootScope.activeUser = result.data.user;
+      $state.go('profiles.list');
+    })
+    .catch(function(){
+      $window.swal({title: 'Login Error', text: 'There was a problem with your login. Please try again.', type: 'error'});
+    });
   };
 });
